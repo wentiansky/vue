@@ -113,6 +113,7 @@ export default {
 
   render () {
     const slot = this.$slots.default
+    // 只处理keep-alive的第一个子元素，一般搭配<Component />和<router-view />组件一起使用
     const vnode: VNode = getFirstComponentChild(slot)
     const componentOptions: ?VNodeComponentOptions = vnode && vnode.componentOptions
     if (componentOptions) {

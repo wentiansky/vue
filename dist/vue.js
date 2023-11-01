@@ -735,7 +735,7 @@
   Dep.prototype.notify = function notify () {
     // stabilize the subscriber list first
     var subs = this.subs.slice();
-    if ( !config.async) {
+    if (!config.async) {
       // subs aren't sorted in scheduler if not running async
       // we need to sort them now to make sure they fire in correct
       // order
@@ -1112,6 +1112,7 @@
       target[key] = val;
       return val
     }
+    // 新增属性转换成响应式
     defineReactive$$1(ob.value, key, val);
     ob.dep.notify();
     return val
@@ -6235,7 +6236,6 @@
       }
 
       while (oldStartIdx <= oldEndIdx && newStartIdx <= newEndIdx) {
-        // debugger
         if (isUndef(oldStartVnode)) {
           oldStartVnode = oldCh[++oldStartIdx]; // Vnode has been moved left
         } else if (isUndef(oldEndVnode)) {
@@ -12026,4 +12026,3 @@
   return Vue;
 
 }));
-//# sourceMappingURL=vue.js.map
